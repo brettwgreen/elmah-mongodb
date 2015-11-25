@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
-    <id>elmah.mongodb</id>
-    <version>1.7</version>
-    <title>ELMAH on MongoDB (requires manual config)</title>
-    <authors>Simon Green</authors>
-    <owners>Simon Green</owners>
+    <id>elmah.mongodb.driver</id>
+    <version>1.0</version>
+    <title>ELMAH on MongoDB 2.x .NET Driver</title>
+    <authors>Brett Green</authors>
+    <owners>Brett Green</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/CaptainCodeman/elmah-mongodb</projectUrl>
+    <projectUrl>https://github.com/brettwgreen/elmah-mongodb</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>ELMAH with configuration for getting started quickly on a MongoDB database as the error log. NB requires manual configuration. NOTE: The format of the log files has changed, please use a new collection or clear existing entries before using this version.</description>
-    <summary>ELMAH with configuration for getting started quickly on a MongoDB database as the error log. NB requires manual configuration. NOTE: The format of the log files has changed, please use a new collection or clear existing entries before using this version.</summary>
+    <description>Mongo Wrapper for Elmah using the Mongo 2.1 .NET Driver (Forked from CaptainCodeman's version which only works with legacy driver)</description>
+    <summary>Mongo Wrapper for Elmah using the Mongo 2.1 .NET Driver</summary>
     <language>en-US</language>
     <tags>mongodb elmah error logging unhandled exception</tags>
     <dependencies>
       <dependency id="elmah" version="1.2.2" />
-      <dependency id="mongocsharpdriver" version="1.7" />
+      <dependency id="MongoDB.Driver" version="2.1" />
     </dependencies>
   </metadata>
 </package>

@@ -9,3 +9,6 @@ _ReSharper.*
 *.Cache
 *.cache
 ~$*
+src/.vs/
+src/Backup/
+src/UpgradeLog.htm

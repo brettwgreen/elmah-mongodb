@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>elmah.mongodb.driver</id>
-    <version>1.0</version>
+    <version>1.4</version>
     <title>ELMAH on MongoDB 2.x .NET Driver</title>
     <authors>Brett Green</authors>
     <owners>Brett Green</owners>

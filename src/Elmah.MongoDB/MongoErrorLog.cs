@@ -209,7 +209,6 @@ namespace Elmah
       if (pageSize < 0) throw new ArgumentOutOfRangeException("pageSize", pageSize, null);
 
       var task = _collection.Find(new BsonDocument())
-        .Sort("$natural")
         .Skip(pageIndex * pageSize)
         .Limit(pageSize).ToListAsync();
       task.Wait();

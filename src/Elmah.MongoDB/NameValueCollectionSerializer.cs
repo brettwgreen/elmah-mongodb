@@ -54,16 +54,26 @@ namespace Elmah
       bsonWriter.WriteStartArray();
       foreach (var key in nvc.AllKeys)
       {
-        foreach (var val in nvc.GetValues(key))
+        var vals = nvc.GetValues(key);
+        if(vals != null)
         {
-          bsonWriter.WriteStartArray();
-          bsonWriter.WriteString(key);
-          bsonWriter.WriteString(val);
-          bsonWriter.WriteEndArray();
+            foreach (var val in vals)
+            {
+                bsonWriter.WriteStartArray();
+                bsonWriter.WriteString(key);
+                bsonWriter.WriteString(val);
+                bsonWriter.WriteEndArray();
+            }
+        }
+        else
+        {
+            bsonWriter.WriteStartArray();
+            bsonWriter.WriteString(key);
+            bsonWriter.WriteString("");
+            bsonWriter.WriteEndArray();
         }
       }
       bsonWriter.WriteEndArray();
-    }
-    
+    }    
   }
 }

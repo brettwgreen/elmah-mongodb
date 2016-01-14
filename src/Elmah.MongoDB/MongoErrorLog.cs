@@ -130,8 +130,15 @@ namespace Elmah
 
         _collection = database.GetCollection<BsonDocument>(_collectionName);
 
-        //_mongoInsertOptions = new MongoInsertOptions { CheckElementNames = false };
-      }
+		//create an index on time
+		try {
+			IndexKeysDefinition<BsonDocument> keys = "{ time: -1 }";
+			var taskIx = _collection.Indexes.CreateOneAsync( keys, new CreateIndexOptions { Name = "ix_time" } );
+			taskIx.Wait();
+		} catch { }
+		
+		//_mongoInsertOptions = new MongoInsertOptions { CheckElementNames = false };
+			}
     }
 
     /// <summary>
@@ -208,7 +215,11 @@ namespace Elmah
       if (pageIndex < 0) throw new ArgumentOutOfRangeException("pageIndex", pageIndex, null);
       if (pageSize < 0) throw new ArgumentOutOfRangeException("pageSize", pageSize, null);
 
+	  // Need to force documents into descending date order
+	  var sort = Builders<BsonDocument>.Sort.Descending( "time" );
+
       var task = _collection.Find(new BsonDocument())
+		.Sort(sort)
         .Skip(pageIndex * pageSize)
         .Limit(pageSize).ToListAsync();
       task.Wait();
